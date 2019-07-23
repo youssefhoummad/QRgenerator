@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
+    <title>App!</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script>
+    function generateQR(){
+      var data = document.getElementById("data").value;
+      eel.generate_qr(data)(function(base64){
+        document.getElementById("qr").src = base64;
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+      <h1>QR generator</h1>
+      <div class="form-group">
+        <input type="text" name="data" id="data" class="form-control" placeholder="data"><br>
+        <button class="btn btn-outline-light mx-auto" onclick="generateQR()">Get QRCode</button>
+      </div>
+      <div>
+        <img id="qr" sc="" width="350px">
+      </div>
+    </div>
+  </body>
+</html>
